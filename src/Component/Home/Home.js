@@ -18,8 +18,17 @@ export default function Home() {
 
       <Grid container>
         {jobs.map((job) => (
-          <Grid item xs={4}>
-            <Cards />
+          <Grid item xs={4} sx={{ paddingBottom: "20px" }}>
+            <Cards
+              img={job.logoUrl}
+              companyName={job.companyName}
+              location={job.location}
+              role={job.jobRole}
+              maxSalary={job.maxJdSalary}
+              minSalary={job.minJdSalary}
+              currency={job.salaryCurrencyCode}
+              about={job.jobDetailsFromCompany}
+            />
           </Grid>
         ))}
       </Grid>
