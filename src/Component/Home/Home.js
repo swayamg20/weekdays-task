@@ -1,13 +1,22 @@
 import React, { useEffect, useState } from "react";
 import TopBar from "../Topbar/TopBar";
 import Cards from "../Cards/Cards";
-import { Grid } from "@mui/material";
+import {
+  Grid,
+  useMediaQuery,
+  ThemeProvider,
+  createTheme,
+  Box,
+} from "@mui/material";
 // import jobData from "../../Assets/jobs";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Home() {
   // const [jobs, setJobs] = useState([]);
   const { jobs, filters } = useSelector((state) => state.jobState);
+  const theme = createTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
   const filterJobs = (jobs) => {
     return jobs.filter((job) => {
       const {
@@ -17,7 +26,7 @@ export default function Home() {
         remoteOnsite,
         role,
         minBasePay,
-      } = filters || {}; // Add null check here
+      } = filters || {};
 
       return (
         (minExperience === null || job.minExp >= minExperience) &&
@@ -39,16 +48,24 @@ export default function Home() {
   const filteredJobs = filterJobs(jobs);
   console.log(filteredJobs);
 
-
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <TopBar />
 
       <Grid container>
         {filteredJobs.map((job) => (
-          <Grid item xs={4} sx={{ paddingBottom: "20px" }} key={job.jdUid}>
+          <Grid
+            item
+            xs={isMobile ? "12" : "4"}
+            sx={{
+              paddingBottom: "20px",
+              display: "flex",
+              justifyContent: "center",
+              
+            }}
+            key={job.jdUid}
+          >
             <Cards
-
               img={job.logoUrl}
               companyName={job.companyName}
               location={job.location}
@@ -57,10 +74,11 @@ export default function Home() {
               minSalary={job.minJdSalary}
               currency={job.salaryCurrencyCode}
               about={job.jobDetailsFromCompany}
+              minExp={job.minExp}
             />
           </Grid>
         ))}
       </Grid>
-    </>
+    </ThemeProvider>
   );
 }

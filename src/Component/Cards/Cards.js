@@ -14,7 +14,7 @@ export default function Cards(props) {
     <Card
       sx={{
         maxWidth: 350,
-        height: "75vh",
+        height: "80vh",
         borderRadius: "20px",
         boxShadow:
           "rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px",
@@ -103,11 +103,48 @@ export default function Cards(props) {
         <Typography sx={{ p: 1, pb: 0, color: "#8B8B8B", fontWeight: 600 }}>
           Minimum Experience <br />
         </Typography>
-        <Typography sx={{ p: 1, pt: 0 }}>7 years</Typography>
+        <Typography sx={{ p: 1, pt: 0 }}>
+          {props.minExp ? props.minExp : "0+"} years
+        </Typography>
       </CardContent>
-      <CardActions>
-        <Button size="small">Learn More</Button>
-      </CardActions>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+          padding: 1,
+        }}
+      >
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            background: "#55EFC3",
+            color: "black",
+            borderRadius: "10px",
+            fontWeight: "600",
+            height: "6vh",
+          }}
+        >
+         ⚡ Easy Apply
+        </Box>
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            background: "#4943DA",
+            color: "white",
+            borderRadius: "10px",
+            fontWeight: "500",
+            height: "6vh",
+            mt: "1.5vh",
+          }}
+        >
+          Unlock referral asks
+        </Box>
+      </Box>
     </Card>
   );
 }

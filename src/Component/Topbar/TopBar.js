@@ -49,17 +49,22 @@ const TopBar = () => {
         sx={{
           display: "flex",
           flexDirection: isMobile ? "column" : "row",
+          justifyContent: "space-between",
           margin: "10px",
-          maxWidth: "80vw",
+          // maxWidth: "100vw",
         }}
       >
-        <FormControl margin="normal">
+        <FormControl
+          size="small"
+          margin="dense"
+          fullWidth
+          sx={{ margin: "5px" }}
+        >
           <InputLabel>Min Base Pay</InputLabel>
           <Select
             value={filters.minBasePay || ""}
             onChange={handleMinBasePayChange}
             label="Min Base Pay"
-            sx={{ minWidth: "10vw" }}
           >
             <MenuItem value="">Select</MenuItem>
             {[...Array(11).keys()].map((i) => (
@@ -70,8 +75,14 @@ const TopBar = () => {
           </Select>
         </FormControl>
 
-        <FormControl margin="normal">
+        <FormControl
+          size="small"
+          margin="dense"
+          fullWidth
+          sx={{ margin: "5px" }}
+        >
           <TextField
+            size="small"
             label="Min Experience"
             type="number"
             value={filters.minExperience || ""}
@@ -79,8 +90,14 @@ const TopBar = () => {
           />
         </FormControl>
 
-        <FormControl margin="normal">
+        <FormControl
+          sx={{ margin: "5px" }}
+          size="small"
+          margin="dense"
+          fullWidth
+        >
           <TextField
+            size="small"
             label="Company Name"
             type="text"
             value={filters.companyName}
@@ -88,8 +105,14 @@ const TopBar = () => {
           />
         </FormControl>
 
-        <FormControl margin="normal">
+        <FormControl
+          sx={{ margin: "5px" }}
+          size="small"
+          margin="dense"
+          fullWidth
+        >
           <TextField
+            size="small"
             label="Location"
             type="text"
             value={filters.location}
@@ -98,13 +121,18 @@ const TopBar = () => {
           />
         </FormControl>
 
-        <FormControl margin="normal">
-          <InputLabel>Remote/Onsite</InputLabel>
+        <FormControl
+          sx={{ margin: "5px" }}
+          size="small"
+          margin="dense"
+          fullWidth
+        >
+          <InputLabel id="demo-select-small-label">Remote/Onsite</InputLabel>
           <Select
+            id="demo-select-small-label"
             value={filters.remoteOnsite}
             onChange={handleRemoteOnsiteChange}
             label="Remote/Onsite"
-            sx={{ minWidth: "10vw" }}
           >
             <MenuItem value="">Select</MenuItem>
             <MenuItem value="remote">Remote</MenuItem>
@@ -112,8 +140,9 @@ const TopBar = () => {
           </Select>
         </FormControl>
 
-        <FormControl margin="normal">
+        <FormControl sx={{ margin: "5px" }} margin="dense" fullWidth>
           <TextField
+            size="small"
             label="Role"
             type="text"
             value={filters.role}
