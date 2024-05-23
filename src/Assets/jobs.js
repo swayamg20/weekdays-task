@@ -1,4 +1,4 @@
-const jobData = () => {
+export const jobData = () => {
     return [
       {
         jdUid: "cfff35ac-053c-11ef-83d3-06301d0a7178-92010",
@@ -978,4 +978,3 @@ const jobData = () => {
     ];
   };
 
-  export default jobData;
