@@ -51,7 +51,7 @@ const TopBar = () => {
           flexDirection: isMobile ? "column" : "row",
           justifyContent: "space-between",
           margin: "10px",
-          // maxWidth: "100vw",
+          marginBottom: "10vh",
         }}
       >
         <FormControl
