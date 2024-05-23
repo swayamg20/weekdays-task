@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import { jobData } from '../Assets/jobs'; // Import the jobData function
+import { jobData } from '../Assets/jobs'; 
 import { SET_FILTER } from './actions';
 
 // Define the initial state
 const initialJobState = {
-  jobs: jobData(), // Call jobData to get the job array, not the function itself
+  jobs: jobData(), 
   filters: {
     minExperience: null,
     companyName: '',
@@ -15,7 +15,6 @@ const initialJobState = {
   },
 };
 
-// Define the job reducer
 const jobReducer = (state = initialJobState, action) => {
   switch (action.type) {
     case SET_FILTER:

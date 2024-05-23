@@ -1,3 +1,5 @@
+// Formatting salary range
+
 const formatSalaryRange = (minSalary, maxSalary) => {
     if (minSalary === null && maxSalary === null) {
       return 'Not mentioned';

@@ -1,22 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import TopBar from "../Topbar/TopBar";
 import Cards from "../Cards/Cards";
-import {
-  Grid,
-  useMediaQuery,
-  ThemeProvider,
-  createTheme,
-  Box,
-} from "@mui/material";
-// import jobData from "../../Assets/jobs";
-import { useDispatch, useSelector } from "react-redux";
+import { Grid, useMediaQuery, ThemeProvider, createTheme } from "@mui/material";
+import { useSelector } from "react-redux";
 
 export default function Home() {
-  // const [jobs, setJobs] = useState([]);
   const { jobs, filters } = useSelector((state) => state.jobState);
+
+  // responsiveness
   const theme = createTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
+  // function to get filtered jobs
   const filterJobs = (jobs) => {
     return jobs.filter((job) => {
       const {
@@ -46,7 +41,7 @@ export default function Home() {
   };
 
   const filteredJobs = filterJobs(jobs);
-  console.log(filteredJobs);
+  // console.log(filteredJobs); for debugging
 
   return (
     <ThemeProvider theme={theme}>
@@ -61,7 +56,6 @@ export default function Home() {
               paddingBottom: "20px",
               display: "flex",
               justifyContent: "center",
-              
             }}
             key={job.jdUid}
           >

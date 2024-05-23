@@ -16,9 +16,12 @@ import {
 const TopBar = () => {
   const dispatch = useDispatch();
   const { filters } = useSelector((state) => state.jobState);
+  
+  // responsiveness
   const theme = createTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
+  // handlers
   const handleMinBasePayChange = (e) => {
     dispatch(setFilter({ minBasePay: Number(e.target.value) }));
   };
@@ -52,6 +55,7 @@ const TopBar = () => {
           justifyContent: "space-between",
           margin: "10px",
           marginBottom: "10vh",
+          marginTop: "10vh",
         }}
       >
         <FormControl

@@ -2,6 +2,8 @@ import React from "react";
 import Box from "@mui/material/Box";
 import "./style.css";
 
+// The fade effect at the bottom of paragraph
+
 const FadePara = ({ content, maxHeight }) => {
   return (
     <Box className="paragraph-container" style={{ maxHeight: maxHeight }}>
