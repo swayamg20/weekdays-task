@@ -1,1 +1,1 @@
-Vercel Link: https://weekdays-task.vercel.app/
+{responsive }Vercel Link: https://weekdays-task.vercel.app/
