@@ -14,7 +14,8 @@ export default function Cards(props) {
     <Card
       sx={{
         maxWidth: 350,
-        height: "80vh",
+        height: "fit-content",
+        minWidth: "30vw",
         borderRadius: "20px",
         boxShadow:
           "rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px",
